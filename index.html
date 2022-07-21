@@ -5,9 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./home/css/index.css">
 </head>
 <body>
-    
+    <button>登录</button>
+    <script src="./home/lib/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $('button').on('click',function(){
+                // $.post('http://127.0.0.1:3007/api/login',{username:'zhangqiao',password:'123456'},(res)=>{
+                    // console.log(res);
+                // })
+                $.ajax({
+                    type: "POST",
+                    url: "http://127.0.0.1:3007/api/login",
+                    data: {username:'zhangqiao',password:'123456'},
+                    success: function (response) {
+                        console.log(response);
+                    }
+                });
+            })
+        })
+    </script>
 </body>
 </html>
